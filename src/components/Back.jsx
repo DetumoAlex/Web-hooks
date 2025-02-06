@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-
+import { IoIosArrowDropleft } from "react-icons/io";
 
 const Back = () => {
      const navigate = useNavigate()
@@ -7,7 +7,7 @@ const Back = () => {
   return (
     <div >
       <button onClick={()=> {navigate(-1)}} 
-      className="cursor-pointer text-2xl font-semibold bg-blue-700 p-1 w-18 text-white ml-10 rounded-lg">Prev</button>
+      className="cursor-pointer text-2xl p-1 w-18 rounded-lg"><IoIosArrowDropleft /></button>
     </div>
   )
 }

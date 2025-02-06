@@ -1,38 +1,32 @@
-import { useState, useEffect } from 'react'
-import ProductCard from '../components/ProductCard';
-
+import { useState, useEffect } from "react";
+import ProductCard from "../components/ProductCard";
 
 const Products = () => {
   const [product, setProduct] = useState([]);
- 
-
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
         const data = await fetch("https://fakestoreapi.com/products");
         const response = await data.json();
-        setProduct(response)
+        setProduct(response);
       } catch (error) {
-        console.log(error.message)
-
-
+        console.log(error.message);
       }
-    }
+    };
     fetchProduct();
-  }, [])
+  }, []);
   return (
-    <div className='mt-12'>
-      <h3>Product</h3>
-      
-      {
-        product.map((p, index) => {
-          console.log(p);
-          <ProductCard key={index} product={p} />
-        })
-      }
-    </div>
-  )
-}
+    <div className="mt-4">
+      <h3 className="text-xl border-4 border-red-600 text-center font-semibold mb-3 p-4 rounded-lg">Products</h3>
 
-export default Products
+      <div className="grid grid-cols-4 gap-4 ">
+        {product.map((p, index) => {
+          return <ProductCard key={index} product={p} />;
+        })}
+      </div>
+    </div>
+  );
+};
+
+export default Products;
