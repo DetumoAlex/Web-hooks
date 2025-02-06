@@ -6,7 +6,7 @@ import { HiOutlineShoppingCart } from "react-icons/hi2";
 const Nav = () => {
   return (
     <div>
-      <nav className="text-white p-2 px-10 bg-gradient-to-br from-black to-red-700 ">
+      <nav className="text-white p-2 px-10 bg-gradient-to-br from-black to-slate-300 ">
         <div className="flex justify-between text-2xl font-bold ">
           <Link to="/" className="flex items-center gap-1">
             <TfiHeadphoneAlt /> <h1>CRT</h1>

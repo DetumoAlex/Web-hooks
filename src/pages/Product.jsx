@@ -18,7 +18,7 @@ const Products = () => {
   }, []);
   return (
     <div className="mt-4">
-      <h3 className="text-xl border-4 border-red-600 text-center font-semibold mb-3 p-4 rounded-lg">Products</h3>
+      <h3 className="text-xl border-2 border-black text-center font-semibold mb-3 p-4 rounded-lg">Products</h3>
 
       <div className="grid grid-cols-4 gap-4 ">
         {product.map((p, index) => {
