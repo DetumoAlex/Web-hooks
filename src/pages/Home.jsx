@@ -17,8 +17,12 @@ const Home = () => {
           {/* <Link to="/product">Products</Link> */}
         </div>
 
-        <main className="gap-4 mt-10 flex  text-white ">
+       
+
+        <main className="gap-4 mt-10 flex text-white ">
+        
           <div className="">
+            
             <div className=" mb-4 p-4 flex items-center gap-4 bg-gradient-to-br from-black to-slate-300 rounded-lg">
               <p className="text-4xl">
                 <GrBusinessService />
