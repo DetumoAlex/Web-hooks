@@ -23,7 +23,7 @@ const Home = () => {
         
           <div className="">
             
-            <div className=" mb-4 p-4 flex items-center gap-4 bg-gradient-to-br from-black to-slate-300 rounded-lg">
+            <div className=" mb-4 p-4 flex items-center gap-4 bg-black rounded-lg">
               <p className="text-4xl">
                 <GrBusinessService />
               </p>
@@ -37,7 +37,7 @@ const Home = () => {
               </div>
             </div>
 
-            <div className=" p-4  flex items-center gap-4 bg-gradient-to-br from-black to-slate-300 rounded-lg">
+            <div className=" p-4  flex items-center gap-4 bg-black rounded-lg">
               <p className="text-4xl">
                 <RiServiceLine />
               </p>
@@ -52,7 +52,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div className=" p-4 bg-gradient-to-br from-black to-slate-300 rounded-lg">
+          <div className=" p-4 bg-black rounded-lg">
             <div>
               <p className="font-bold text-2xl">Lorem.</p>
               <p>

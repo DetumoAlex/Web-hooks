@@ -8,7 +8,7 @@ const ProductDetail = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const FLUTTER_PUBLIC_KEY =import.meta.env.VITE_PUBLIC_KEY
+  // const FLUTTER_PUBLIC_KEY =import.meta.env.VITE_PUBLIC_KEY
 
   useEffect(() => {
     const fetchSingleProduct = async () => {
@@ -38,33 +38,33 @@ const ProductDetail = () => {
 
   
 
-  const config = {
-    public_key: FLUTTER_PUBLIC_KEY,
-    tx_ref: Date.now(),
-    amount:product.price,
-    currency: 'NGN',
-    payment_options: 'card,mobilemoney,ussd',
-    customer: {
-      email: 'user@gmail.com',
-      phone_number: '070**',
-      name: 'john doe',
-    },
-    customizations: {
-      title: 'My store',
-      description: 'Payment for items in cart',
-      logo: 'https://st2.depositphotos.com/4403291/7418/v/450/depositphotos_74189661-stock-illustration-online-shop-log.jpg',
-    },
-  };
+//   const config = {
+//     public_key: FLUTTER_PUBLIC_KEY,
+//     tx_ref: Date.now(),
+//     amount:product.price,
+//     currency: 'NGN',
+//     payment_options: 'card,mobilemoney,ussd',
+//     customer: {
+//       email: 'user@gmail.com',
+//       phone_number: '070**',
+//       name: 'john doe',
+//     },
+//     customizations: {
+//       title: 'My store',
+//       description: 'Payment for items in cart',
+//       logo: 'https://st2.depositphotos.com/4403291/7418/v/450/depositphotos_74189661-stock-illustration-online-shop-log.jpg',
+//     },
+//   };
 
-  const fwConfig = {
-    ...config,
-    text: 'Buy now',
-    callback: (response) => {
-       console.log(response);
-      closePaymentModal() 
-    },
-    onClose:()=>{},
-};
+//   const fwConfig = {
+//     ...config,
+//     text: 'Buy now',
+//     callback: (response) => {
+//        console.log(response);
+//       closePaymentModal() 
+//     },
+//     onClose:()=>{},
+// };
 
   return (
     <div className="flex shadow-lg p-4 m-5 gap-10 text-lg">
@@ -80,9 +80,9 @@ const ProductDetail = () => {
         <p>
           <strong>Price:</strong> ${product.price}
         </p>
-        <FlutterWaveButton className="text-2xl font-semibold bg-black rounded-lg p-2 w-1/2 mt-10 text-white cursor-pointer"
+        {/* <FlutterWaveButton className="text-2xl font-semibold bg-black rounded-lg p-2 w-1/2 mt-10 text-white cursor-pointer"
         {...fwConfig}
-        />
+        /> */}
 
         {/* <button >
           BUY

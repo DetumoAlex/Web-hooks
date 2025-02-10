@@ -5,6 +5,8 @@ import MainLayout from "./components/MainLayout";
 import Home from './pages/Home'
 import "./App.css"
 import Transaction from './pages/Transaction'
+import Checkout from "./components/Checkout";
+// import CartItems from "./components/CartItems";
 
 
 const App = () => {
@@ -17,6 +19,7 @@ const App = () => {
             <Route path="product" element={<Product />} />
             <Route path="product/:id" element={<ProductDetail />} />
             <Route path="transaction" element={<Transaction/>}/>
+            <Route path="checkout" element={<Checkout/>}/>
           </Route>
         </Routes>
       </Router>

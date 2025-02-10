@@ -2,11 +2,17 @@ import { Link } from "react-router-dom";
 import { FaRegUser } from "react-icons/fa";
 import { TfiHeadphoneAlt } from "react-icons/tfi";
 import { HiOutlineShoppingCart } from "react-icons/hi2";
+import { useSelector } from "react-redux";
+import { useState } from "react";
+import CartItems from "./cartItems";
 
 const Nav = () => {
+  const cart = useSelector((state) => state.cart.cartCount);
+  const [cartItem, setCartItem] = useState(false);
+
   return (
     <div>
-      <nav className="text-white p-2 px-10 bg-gradient-to-br from-black to-slate-300 ">
+      <nav className="text-white p-2 px-10 bg-black ">
         <div className="flex justify-between text-2xl font-bold ">
           <Link to="/" className="flex items-center gap-1">
             <TfiHeadphoneAlt /> <h1>CRT</h1>
@@ -24,13 +30,21 @@ const Nav = () => {
               <Link to="/user" className="flex gap-2 items-center">
                 <FaRegUser /> User
               </Link>
-              <Link to="/">
-                <HiOutlineShoppingCart />
-              </Link>
+              {/* <Link
+                to="/cartItems"
+                className="flex"
+                onClick={() => setCartItem(true)}
+              > */}
+              <HiOutlineShoppingCart
+                onClick={() => setCartItem((previous) => !previous)}
+              />
+              <span className="text-sm">{cart}</span>
+              {/* </Link> */}
             </ul>
           </div>
         </div>
       </nav>
+      {cartItem && <CartItems />}
     </div>
   );
 };
