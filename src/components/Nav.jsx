@@ -4,7 +4,7 @@ import { TfiHeadphoneAlt } from "react-icons/tfi";
 import { HiOutlineShoppingCart } from "react-icons/hi2";
 import { useSelector } from "react-redux";
 import { useState } from "react";
-import CartItems from "./cartItems";
+
 
 const Nav = () => {
   const cart = useSelector((state) => state.cart.cartCount);
