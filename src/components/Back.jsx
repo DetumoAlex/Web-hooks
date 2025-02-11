@@ -5,9 +5,9 @@ const Back = () => {
      const navigate = useNavigate()
 
   return (
-    <div >
+    <div className="mt-10">
       <button onClick={()=> {navigate(-1)}} 
-      className="cursor-pointer text-2xl p-1 w-18 rounded-lg"><IoIosArrowDropleft /></button>
+      className="cursor-pointer text-2xl p-1 w-18 rounded-lg "><IoIosArrowDropleft /></button>
     </div>
   )
 }

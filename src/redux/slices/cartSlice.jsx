@@ -25,9 +25,16 @@ const cartSlice = createSlice({
       state.cartItem.push(action.payload);
       state.cartCount += 1;
     },
+    remove: (state, action) => {
+      const itemId = action.payload.id;
+      // console.log(itemId)
+      state.cartItem = state.cartItem.filter((item) => item.id != itemId);
+      // console.log(state.cartItem);
+      // state.cartItem.filter(item => item !== actionitem.id);
+      state.cartCount = state.cartItem.length;
+    },
   },
 });
 
-
-export const { addToCart } = cartSlice.actions;
+export const { addToCart, remove } = cartSlice.actions;
 export default cartSlice.reducer;

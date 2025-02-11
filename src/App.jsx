@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Product from "./pages/Product";
-import ProductDetail from "./components/ProductDetail";
+import ProductDetail from "./pages/ProductDetail";
 import MainLayout from "./components/MainLayout";
 import Home from './pages/Home'
 import "./App.css"
 import Transaction from './pages/Transaction'
-import Checkout from "./components/Checkout";
+import Checkout from "./pages/Checkout";
 // import CartItems from "./components/CartItems";
 
 

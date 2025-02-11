@@ -6,7 +6,7 @@ import { MdProductionQuantityLimits } from "react-icons/md";
 const SideBar = () => {
   return (
     <>
-      <div className="text-white w-1/5 rounded-br-lg bg-black flex flex-col justify-between p-4">
+      <div className="text-white w-1/5 rounded-br-lg bg-black flex flex-col justify-between p-4 mt-10">
         <div></div>
         <ul className=" flex flex-col gap-y-2 text-xl font-semibold ">
           <Link to="/" className="flex items-center">

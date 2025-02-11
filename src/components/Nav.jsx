@@ -10,10 +10,15 @@ const Nav = () => {
   const cart = useSelector((state) => state.cart.cartCount);
   const [cartItem, setCartItem] = useState(false);
 
+
+  const closeDropdown = () => {
+    setCartItem(false)
+  }
+
   return (
-    <div>
-      <nav className="text-white p-2 px-10 bg-black ">
-        <div className="flex justify-between text-2xl font-bold ">
+    <div className="">
+      <nav className="text-white p-2 px-10 bg-black fixed left-0 right-0 ">
+        <div className="flex justify-between text-2xl font-bold  b">
           <Link to="/" className="flex items-center gap-1">
             <TfiHeadphoneAlt /> <h1>CRT</h1>
           </Link>
@@ -44,7 +49,7 @@ const Nav = () => {
           </div>
         </div>
       </nav>
-      {cartItem && <CartItems />}
+      {cartItem && <CartItems closeDropdown={closeDropdown} />}
     </div>
   );
 };

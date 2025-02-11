@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <>
       <div className="">
-        <div className="flex p-6 justify-center items-center bg-gradient-to-br from-black to-slate-300 shadow-lg rounded-lg">
+        <div className="flex p-6 justify-center items-center bg-gradient-to-br from-black to-slate-300 shadow-lg rounded-lg mt-10">
           <input
             type="text"
             className=" w-1/2 p-2 px-10 bg-white rounded-lg focus:outline-none"
