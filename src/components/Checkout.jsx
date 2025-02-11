@@ -11,7 +11,7 @@ const Checkout = (item) => {
   const config = {
     public_key: FLUTTER_PUBLIC_KEY,
     tx_ref: Date.now(),
-    totalAmount:item.totalAmount,
+    amount:totalAmount,
     currency: 'NGN',
     payment_options: 'card,mobilemoney,ussd',
     customer: {
@@ -28,7 +28,7 @@ const Checkout = (item) => {
 
    const fwConfig = {
       ...config,
-      text: 'Buy now',
+      text: 'Proceed',
       callback: (response) => {
          console.log(response);
         closePaymentModal() 
@@ -61,7 +61,7 @@ const Checkout = (item) => {
     {/* <div className='rounded text-center text-2xl mt-10 bg-black text-white p-2 w-1/4 '>
         <button>Pay</button>
     </div> */}
-    <FlutterWaveButton className="text-2xl font-semibold bg-black rounded-lg p-2 w-1/2 mt-10 text-white cursor-pointer"
+    <FlutterWaveButton className="text-2xl font-semibold bg-black rounded-lg p-2 w-1/5 mt-10 text-white cursor-pointer"
         {...fwConfig}
         />
     </div>
