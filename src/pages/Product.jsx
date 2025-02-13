@@ -3,6 +3,13 @@ import ProductCard from "../components/ProductCard";
 
 const Products = () => {
   const [product, setProduct] = useState([]);
+  const[filterProduct, setFilterProduct] = useState()
+
+  const filter = (price) => {
+    const result = filterProduct.filter((product) => product.price > price);
+    setProduct(result);
+    return result;
+  };
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -10,6 +17,7 @@ const Products = () => {
         const data = await fetch("https://fakestoreapi.com/products");
         const response = await data.json();
         setProduct(response);
+        setFilterProduct(response)
       } catch (error) {
         console.log(error.message);
       }
@@ -18,7 +26,23 @@ const Products = () => {
   }, []);
   return (
     <div className="mt-4">
-      <h3 className="text-xl border-2 border-black text-center font-semibold mb-3 p-4 rounded-lg">Products</h3>
+      <div className="flex justify-between text-xl text-center font-semibold mb-3 p-2 border-2 border-black rounded-lg">
+        <h3 className=" ">Products</h3>
+        <div>
+          <select
+            name="Filter"
+            id=""
+            onChange={(e) => {
+              filter(Number(e.target.value));
+            }}
+            className="w-auto focus:outline-none"
+          >
+            <option value="">All</option>
+            <option value="150">greater than 150</option>
+            <option value="200">greater than 200</option>
+          </select>
+        </div>
+      </div>
 
       <div className="grid grid-cols-4 gap-4 ">
         {product.map((p, index) => {

@@ -52,10 +52,7 @@ const CartItems = ({ closeDropdown }) => {
         <div className={`text-xl flex flex-col p-4 ${cartItems.length > 5 ? "overflow-y-scroll h-96" : ""}`}
         >
           {cartItems.map((item, index) => (
-            <div
-              key={index}
-              className="flex justify-between items-center py-2 border-b border-gray-200"
-            >
+            <div key={index} className="flex justify-between items-center py-2 border-b border-gray-200">
               <p className="text-lg">{item.category}</p>
               <p className="font-bold text-lg">${item.price}</p>
             </div>

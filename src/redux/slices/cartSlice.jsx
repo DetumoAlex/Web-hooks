@@ -33,6 +33,7 @@ const cartSlice = createSlice({
       // state.cartItem.filter(item => item !== actionitem.id);
       state.cartCount = state.cartItem.length;
     },
+    
   },
 });
 
