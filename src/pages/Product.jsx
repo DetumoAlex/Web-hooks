@@ -37,34 +37,42 @@ const Products = () => {
     };
     fetchProduct();
   }, []);
-  return (
-    <div className="mt-4">
-      <div className="flex justify-between text-xl text-center font-semibold mb-3 p-2 border-2 border-black rounded-lg">
-        <h3 className=" ">Products</h3>
 
-        <div className="flex items-center shadow text-sm p-2 rounded-lg">
+  const handleSearchChange = (e) => {
+    const query = e.target.value;
+    setSearchQuery(query); 
+    searchProduct(query); 
+  };
+
+  return (
+    <div className="mt-4 p-4">
+      <div className="flex flex-col md:flex-row justify-between text-xl text-center font-semibold mb-3 p-2 border-2 border-black rounded-lg">
+        <h3 className="mb-4 md:mb-0 ">Products</h3>
+
+        <div className="flex items-center shadow text-sm p-2 rounded-lg w-full md:w-auto">
           <input
             type="text"
-            className=" bg-white rounded-lg focus:outline-none"
+            className=" bg-white rounded-lg focus:outline-none w-full md:w-64 "
             placeholder="Search Product"
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            // onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={handleSearchChange}
           />
-          <p
+          {/* <p
             className="cursor-pointer"
             onClick={searchProduct}
           >
             <CiSearch />
-          </p>
+          </p> */}
         </div>
-        <div>
+        <div className="mt-4 md:mt-0">
           <select
             name="Filter"
             id=""
             onChange={(e) => {
               filter(Number(e.target.value));
             }}
-            className="w-auto focus:outline-none"
+            className="w-auto md:w-auto focus:outline-none p-2 border rounded-lg"
           >
             <option value="">All</option>
             <option value="150">greater than 150</option>
@@ -73,7 +81,7 @@ const Products = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-4 gap-4 ">
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4" >
         {/* {product.map((p, index) => {
           return <ProductCard key={index} product={p} />;
         })} */}
