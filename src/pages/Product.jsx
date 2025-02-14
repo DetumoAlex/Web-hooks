@@ -18,7 +18,9 @@ const Products = () => {
       setProduct(filterProduct);
       return;
     }
-    const result = product.find((p) => p.title.includes(searchQuery));
+    const result = product.filter((p) =>
+      p.title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
     setProduct(result);
   };
 
@@ -48,7 +50,10 @@ const Products = () => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
-          <p className="cursor-pointer" value="id" onClick={searchProduct}>
+          <p
+            className="cursor-pointer"
+            onClick={searchProduct}
+          >
             <CiSearch />
           </p>
         </div>
