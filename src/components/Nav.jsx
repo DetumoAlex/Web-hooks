@@ -56,12 +56,14 @@ import { Link } from "react-router-dom";
 import { FaRegUser, FaBars } from "react-icons/fa";
 import { TfiHeadphoneAlt } from "react-icons/tfi";
 import { HiOutlineShoppingCart } from "react-icons/hi2";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
-import CartItems from "./CartItems"; // Assuming you have a CartItems component
+import CartItems from "./CartItems"; 
+import { updateFirstName } from "../redux/slices/userSlice";// Assuming you have a CartItems component
 
 const Nav = () => {
   const cart = useSelector((state) => state.cart.cartCount);
+  const user = useSelector((state)=> state.user)
   const [cartItem, setCartItem] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State for mobile menu
 
@@ -97,8 +99,9 @@ const Nav = () => {
           {/* Navigation Links (Desktop) */}
           <div className="hidden md:flex items-center gap-4">
             <Link to="/user" className="flex gap-2 items-center">
-              <FaRegUser /> <span className="text-lg">User</span>
+              <FaRegUser /> <span className="text-lg">{user}</span>
             </Link>
+            
             <div
               className="flex items-center gap-2 cursor-pointer"
               onClick={() => setCartItem((previous) => !previous)}
