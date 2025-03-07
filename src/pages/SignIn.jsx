@@ -1,34 +1,42 @@
-import axios from "axios";
-import {useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Swal from 'sweetalert2'
-
+import { login } from "../redux/slices/authSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 const SignIn = () => {
+
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
- const navigate = useNavigate()
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
+  const data = useSelector((state) => state.auth);
 
-  const signInData={
-    email:email,
-    password:password
-  }
+  
 
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    await dispatch(login({ email, password }));
 
-    const handleLogin = async (e) => {
-      e.preventDefault()
-        const res = await axios.post("http://localhost:5000/api/sign-in", signInData);
-        // const data = res.data;
-        if(res.data.status === true){
-                Swal.fire({
-                    title: `${res.data.data.email}`,
-                    text: `${res.data.message}`,
-                    icon: "success"
-                  });
-                  navigate('/product')
-                }console.log(error.message)
-    };
+    // const userData =data.data.data.data;
+    try {
+      Swal.fire({
+        title: `${data.data.data.data.firstName}`,
+        text: `${data.data.data.message}`,
+        icon: "success",
+      });
+      navigate("/product");
+    } catch (error) {
+      Swal.fire({
+        title: "Error",
+        text: `Login Failed`,
+        icon: "error",
+      });
+    }
+  };
 
   return (
     <div className="flex items-center justify-center p-5 my-20 ">
@@ -71,22 +79,23 @@ const SignIn = () => {
             </button>
 
             <Link
-              to="/signup"
+              to="/signUp"
               className="flex items-center justify-center mb-3 text-black"
             >
               Don't have an Account? Register
             </Link>
             <hr className="mb-4" />
           </div>
-          <div className=" flex items-center justify-center">
+          {/* <div className=" flex items-center justify-center">
             <Link to="/signup">
               <button className="text-lg font-medium bg-gray-500 p-3 text-white w-1/1 border rounded-lg">
                 Create a new account
               </button>
             </Link>
-          </div>
+          </div> */}
         </form>
       </div>
+      <ToastContainer/>
     </div>
   );
 };

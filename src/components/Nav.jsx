@@ -101,6 +101,7 @@ const Nav = () => {
             <Link to="/user" className="flex gap-2 items-center">
               <FaRegUser /> <span className="text-lg">{user}</span>
             </Link>
+            {/* <Link to='/SignIn'>signin</Link> */}
             
             <div
               className="flex items-center gap-2 cursor-pointer"
